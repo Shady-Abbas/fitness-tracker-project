@@ -1,0 +1,422 @@
+/* Base Styles */
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    padding: 10px;
+    font-weight: 500;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+/* Loading State */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.btn-loading::after {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Dashboard Styles */
+.dashboard-card {
+    transition: transform 0.2s;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+/* Navigation Styles */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.9);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+#userDropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quick-actions .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bi {
+    margin-right: 4px;
+}
+
+/* Food Diary Styles */
+.meal-sections .card {
+    margin-bottom: 1.5rem;
+}
+
+.meal-sections .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.food-entry {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Navbar Dark Theme */
+.dark-theme .navbar {
+    background-color: #1a1a1a !important;
+}
+
+/* Cards Dark Theme */
+.dark-theme .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+.dark-theme .card-title {
+    color: #fff;
+}
+
+/* Form Controls Dark Theme */
+.dark-theme .form-control,
+.dark-theme .form-select {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+    background-color: #2d2d2d;
+    border-color: #0d6efd;
+    color: #e0e0e0;
+}
+
+.dark-theme .form-control:disabled,
+.dark-theme .form-control[readonly] {
+    background-color: #252525;
+    color: #888;
+}
+
+/* Buttons Dark Theme */
+.dark-theme .btn-light {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark-theme .btn-light:hover {
+    background-color: #353535;
+    border-color: #404040;
+    color: #fff;
+}
+
+.dark-theme .btn-link {
+    color: #8ab4f8;
+}
+
+.dark-theme .btn-link:hover {
+    color: #adc6f5;
+}
+
+/* Dropdown Dark Theme */
+.dark-theme .dropdown-menu {
+    background-color: #2d2d2d;
+    border-color: #404040;
+}
+
+.dark-theme .dropdown-item {
+    color: #e0e0e0;
+}
+
+.dark-theme .dropdown-item:hover {
+    background-color: #353535;
+    color: #fff;
+}
+
+.dark-theme .dropdown-divider {
+    border-color: #404040;
+}
+
+/* Modal Dark Theme */
+.dark-theme .modal-content {
+    background-color: #1e1e1e;
+    border-color: #404040;
+}
+
+.dark-theme .modal-header,
+.dark-theme .modal-footer {
+    border-color: #404040;
+}
+
+/* Alert Dark Theme */
+.dark-theme .alert {
+    background-color: #2d2d2d;
+    border-color: #404040;
+}
+
+.dark-theme .alert-success {
+    background-color: #1e4620;
+    border-color: #2f5c2f;
+    color: #98c999;
+}
+
+.dark-theme .alert-danger {
+    background-color: #4c1d1d;
+    border-color: #642626;
+    color: #e6a5a5;
+}
+
+/* Input Groups Dark Theme */
+.dark-theme .input-group-text {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+/* Progress Bars Dark Theme */
+.dark-theme .progress {
+    background-color: #2d2d2d;
+}
+
+/* Dashboard Cards Dark Theme */
+.dark-theme .dashboard-card {
+    background-color: #1e1e1e;
+}
+
+/* Navigation Tabs Dark Theme */
+.dark-theme .nav-tabs .nav-link {
+    color: #e0e0e0;
+}
+
+.dark-theme .nav-tabs .nav-link.active {
+    background-color: #1e1e1e;
+    border-color: #404040;
+    color: #fff;
+}
+
+/* Food Diary Specific Dark Theme */
+.dark-theme .meal-sections .card-header {
+    background-color: #252525;
+}
+
+.dark-theme .food-entry {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.dark-theme .list-group-item {
+    background-color: #1e1e1e;
+    border-color: #404040;
+}
+
+.dark-theme .list-group-item:hover {
+    background-color: #252525;
+}
+
+.dark-theme .list-group-item button.btn-link {
+    color: #e0e0e0;
+}
+
+/* Text Colors Dark Theme */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6 {
+    color: #fff;
+}
+
+.dark-theme .card-text,
+.dark-theme .card-body {
+    color: #e0e0e0;
+}
+
+.dark-theme .list-group-item strong,
+.dark-theme .list-group-item-action strong {
+    color: #fff;
+}
+
+.dark-theme .modal-title,
+.dark-theme .modal-body {
+    color: #e0e0e0;
+}
+
+.dark-theme label {
+    color: #e0e0e0;
+}
+
+.dark-theme small:not(.text-muted),
+.dark-theme span:not(.text-muted) {
+    color: #e0e0e0;
+}
+
+.dark-theme .text-muted {
+    color: #a0a0a0 !important;
+}
+
+.dark-theme .btn:not(.btn-link):not(.btn-primary) {
+    color: #e0e0e0;
+}
+
+.dark-theme .dropdown-toggle {
+    color: #e0e0e0;
+}
+
+.dark-theme p:not(.text-muted) {
+    color: #e0e0e0;
+}
+
+.dark-theme .list-group-item-action {
+    color: #e0e0e0;
+}
+
+.dark-theme .form-label {
+    color: #e0e0e0;
+}
+
+/* Fix select arrow color in dark mode */
+.dark-theme select.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Improve select contrast in dark mode */
+.dark-theme .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Make sure the select text is visible in dark mode */
+.dark-theme .form-select option {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Table Dark Theme */
+.dark-theme .table {
+    color: #e0e0e0;
+    background-color: #1e1e1e;
+}
+
+.dark-theme .table thead th {
+    background-color: #252525;
+    color: #fff;
+    border-color: #404040;
+}
+
+.dark-theme .table tbody tr {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .table tbody tr:hover {
+    background-color: #252525;
+}
+
+.dark-theme .table td,
+.dark-theme .table th {
+    border-color: #404040;
+}
+
+/* Make sure delete button is visible */
+.dark-theme .table .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.dark-theme .table .btn-danger:hover {
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+}
+
+/* Links Dark Theme */
+.dark-theme a:not(.btn):not(.nav-link) {
+    color: #8ab4f8;
+}
+
+.dark-theme a:not(.btn):not(.nav-link):hover {
+    color: #adc6f5;
+}
+
+/* Active states Dark Theme */
+.dark-theme .dropdown-item.active,
+.dark-theme .dropdown-item:active {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+/* Input placeholder color Dark Theme */
+.dark-theme .form-control::placeholder {
+    color: #888;
+}
+
+/* Focus outline Dark Theme */
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus,
+.dark-theme .btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* styles for the progress bar */
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* different colors based on progress */
+.progress-bar[style*="width: 100"] {
+    background-color: #28a745 !important;
+}
+
+.progress-bar[style*="width: 7"] {
+    background-color: #17a2b8 !important;
+}
+
+.progress-bar[style*="width: 5"] {
+    background-color: #ffc107 !important;
+}
+
+.progress-bar[style*="width: 2"] {
+    background-color: #dc3545 !important;
+}
+

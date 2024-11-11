@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Intake - FitnessTracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">FitnessTracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="food-diary.html">Food Diary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercise.html">Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="progress.html">Progress</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle"></i>
+                        <span id="username">User</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <!-- Hydration Goal Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Daily Hydration Goal</h4>
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="waterGoal">Daily Water Goal (glasses)</label>
+                                    <input type="number" class="form-control" id="waterGoal" min="1" max="20">
+                                    <small class="text-muted">1 glass = 250ml</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="saveGoalBtn" class="btn btn-primary mt-4">Save Goal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Progress Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Today's Progress</h4>
+                        <div class="row align-items-center mb-3">
+                            <div class="col">
+                                <div class="progress" style="height: 25px;">
+                                    <div id="waterProgress" class="progress-bar bg-info" role="progressbar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mb-3">
+                            <h3><span id="currentWater">0</span>/<span id="targetWater">8</span> glasses</h3>
+                        </div>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button id="decreaseWaterBtn" class="btn btn-outline-info"><i class="bi bi-dash-circle"></i></button>
+                            <button id="addWaterBtn" class="btn btn-info text-white"><i class="bi bi-plus-circle"></i> Add Glass</button>
+                            <button id="resetWaterBtn" class="btn btn-outline-danger"><i class="bi bi-arrow-counterclockwise"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Water Intake History</h4>
+                        <div id="waterHistory" class="list-group">
+                            <!-- History items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="water-intake.js"></script>
+    <script src="reminders.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FitnessTracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">FitnessTracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="food-diary.html">Food Diary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercise.html">Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="progress.html">Progress</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle"></i>
+                        <span id="username">User</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Welcome Message -->
+        <div class="row mb-4">
+            <div class="col">
+                <h2>Welcome back, <span id="welcomeUsername">User</span>!</h2>
+                <p class="text-muted">Here's your daily summary</p>
+            </div>
+        </div>
+        <!-- Daily Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card dashboard-card calories-remaining">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Calories Remaining</h6>
+                        <h3 class="card-title mb-0" id="remainingCalories">--</h3>
+                        <div class="progress mt-2">
+                            <div class="progress-bar calories-progress" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <small class="text-muted">Goal: <span id="calorieGoal">--</span></small>
+                            <small class="text-muted">Food: <span id="totalCalories">0</span></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card dashboard-card water-intake">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Water Intake</h6>
+                        <h3 class="card-title mb-0" id="waterIntake">--</h3>
+                        <div class="progress mt-2">
+                            <div class="progress-bar bg-info water-progress" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card dashboard-card exercise">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Exercise Today</h6>
+                        <h3 class="card-title mb-0" id="exerciseDuration">--</h3>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <div>
+                                <small class="text-muted d-block">Duration</small>
+                                <span id="exerciseMinutes" class="fs-6">0 min</span>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Calories Burned</small>
+                                <span id="exerciseCalories" class="fs-6">0 kcal</span>
+                            </div>
+                        </div>
+                        <!-- Optional: Add last exercise info -->
+                        <div class="mt-2 pt-2 border-top">
+                            <small class="text-muted d-block">Last Activity:</small>
+                            <span id="lastExercise" class="small">No recent activity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card dashboard-card macros">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Macronutrients</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <div>
+                                <small class="text-muted d-block">Protein</small>
+                                <span id="proteinTotal" class="fs-6">0g</span>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Carbs</small>
+                                <span id="carbsTotal" class="fs-6">0g</span>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Fat</small>
+                                <span id="fatTotal" class="fs-6">0g</span>
+                            </div>
+                        </div>
+                        <div class="progress mt-2" style="height: 5px;">
+                            <div class="progress-bar bg-success" id="proteinProgress" role="progressbar" style="width: 0%"></div>
+                            <div class="progress-bar bg-warning" id="carbsProgress" role="progressbar" style="width: 0%"></div>
+                            <div class="progress-bar bg-danger" id="fatProgress" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="row mb-4">
+            <div class="col">
+                <h4>Quick Actions</h4>
+                <div class="d-flex gap-2">
+                    <a href="food-diary.html" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add Food</a>
+                    <a href="exercise.html" class="btn btn-success"><i class="bi bi-activity"></i> Log Exercise</a>
+                    <a href="water-intake.html" class="btn btn-info text-white"><i class="bi bi-droplet"></i> Add Water</a>
+                    <a href="settings.html#personalInfoForm" class="btn btn-secondary"><i class="bi bi-graph-up"></i> Update Weight</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placeholder for Future Components -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Daily Progress</h5>
+                        <canvas id="dailyProgressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Weekly Progress</h5>
+                        <canvas id="weeklyProgressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Dashboard Script -->
+    <script src="dashboard.js"></script>
+    <script src="reminders.js"></script>
+</body>
+</html>
