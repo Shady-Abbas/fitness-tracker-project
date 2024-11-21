@@ -97,12 +97,16 @@ function loadUserGoals(userId) {
     return firebase.database().ref(`users/${userId}`).once('value')
         .then((snapshot) => {
             const userData = snapshot.val() || {};
-            const nutritionalGoals = userData.nutritionalGoals || {};
+            const nutritionalGoals = userData.nutritionalGoals || {
+                calories: 2000,  // Default values
+                protein: 150,
+                carbs: 200,
+                fat: 65
+            };
             
             // Update calorie goal display
             if (document.getElementById('calorieGoal')) {
-                document.getElementById('calorieGoal').textContent = 
-                    nutritionalGoals.calories || '2000'; // Default to 2000 only if no goal is set
+                document.getElementById('calorieGoal').textContent = nutritionalGoals.calories;
             }
 
             // Update remaining calories if needed

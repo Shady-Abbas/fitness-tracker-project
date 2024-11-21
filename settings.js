@@ -227,10 +227,12 @@ function updateNutritionalGoals(goals) {
     
     // Update this part to save macro goals directly in user data
     firebase.database().ref('users/' + user.uid).update({
-        calorieGoal: goals.calories,
-        proteinGoal: goals.protein,  
-        carbsGoal: goals.carbs,      
-        fatGoal: goals.fat           
+        nutritionalGoals: {
+            calories: goals.calories,
+            protein: goals.protein,
+            carbs: goals.carbs,
+            fat: goals.fat
+        }         
     }).then(() => {
         showAlert('Nutritional goals updated successfully!', 'success');
     }).catch(error => {
